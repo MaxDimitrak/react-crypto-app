@@ -1,3 +1,23 @@
+import React from 'react';
+
+import { CryptoContextProvider } from './context/crypto-context';
+import AppLayout from './components/layout/AppLayout';
+
+
+
+
+const layoutStyle = {
+	borderRadius: 8,
+	overflow: 'hidden',
+	width: 'calc(50% - 8px)',
+	maxWidth: 'calc(50% - 8px)',
+};
+
 export default function App() {
-  return <h1>React Crypto App</h1>
+
+	return (
+		<CryptoContextProvider>
+			<AppLayout />
+		</CryptoContextProvider>
+	)
 }
