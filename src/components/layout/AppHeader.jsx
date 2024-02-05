@@ -28,6 +28,9 @@ export default function AppHeader() {
 		setIsModalOpen(true)
 	}
 
+	function onClose() {
+		setIsDrawerOpen(false)
+	}
 
 	useEffect(() => {
 		const keypressHandler = (event) => {
@@ -66,18 +69,19 @@ export default function AppHeader() {
 			/>
 			<Button type="primary" onClick={() => setIsDrawerOpen(true)}>Add Asset</Button>
 			<Modal
-				title="Additional info"
+				width={600}
 				open={isModalOpen}
 				onCancel={() => setIsModalOpen(false)}
 				footer={null}>
 				<CoinInfoModal coin={coinInfo} />
 			</Modal>
 			<Drawer
-				width='500px'
+				width='700px'
 				title="Add Asset"
 				onClose={() => setIsDrawerOpen(false)}
+				destroyOnClose
 				open={isDrawerOpen}>
-				<AddAssetForm />
+				<AddAssetForm onClose={onClose} />
 			</Drawer>
 		</Layout.Header >
 	)
